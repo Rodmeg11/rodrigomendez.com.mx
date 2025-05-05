@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { X, ZoomIn } from "lucide-react"
+import { X, ZoomIn } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 
 interface ImageModalProps {
@@ -13,36 +13,45 @@ interface ImageModalProps {
 export function ImageModal({ src, alt }: ImageModalProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [viewportWidth, setViewportWidth] = useState(0)
+  const [viewportHeight, setViewportHeight] = useState(0)
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
-    // Set initial viewport width
+    // Marcar como montado (ahora estamos en el navegador)
+    setIsMounted(true)
+    
+    // Ahora es seguro acceder a window
     setViewportWidth(window.innerWidth)
+    setViewportHeight(window.innerHeight)
 
-    // Update viewport width when window is resized
     const handleResize = () => {
       setViewportWidth(window.innerWidth)
+      setViewportHeight(window.innerHeight)
     }
 
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
+  // No renderizar nada durante SSR
+  if (!isMounted) {
+    return null;
+  }
+
   const openModal = () => {
     setIsOpen(true)
-    // Prevent body scrolling when modal is open
     document.body.style.overflow = "hidden"
   }
 
   const closeModal = () => {
     setIsOpen(false)
-    // Restore body scrolling
     document.body.style.overflow = "auto"
   }
 
-  // Calculate appropriate image dimensions based on viewport
+  // Calcular dimensiones
   const getImageDimensions = () => {
     const maxWidth = Math.min(1200, viewportWidth * 0.9)
-    const maxHeight = window.innerHeight * 0.8
+    const maxHeight = viewportHeight * 0.8
 
     return {
       width: maxWidth,
