@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight } from 'lucide-react'
 
 import { Button } from "@/components/ui/button"
 import { FeaturedArtwork } from "@/components/featured-artwork"
@@ -26,12 +26,18 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button asChild size="lg" className="bg-white text-black hover:bg-white/90">
-              <Link href="/collections/all">
+              <Link href="/collections/all" scroll={true}>
                 Explore Collection <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/20">
-              <Link href="/about">About the Artist</Link>
+            <Button
+              asChild
+              size="lg"
+              className="bg-black/70 text-white border border-white hover:bg-black/90 transition-colors"
+            >
+              <Link href="/about" scroll={true}>
+                About the Artist
+              </Link>
             </Button>
           </div>
         </div>
@@ -85,7 +91,7 @@ export default function Home() {
               category="Original Drawing"
               price="4,000.00"
               image="/placeholder.svg?height=800&width=600"
-              href="/products/dimmed-by-change-and-distance"
+              href="/products/2"
             />
             <FeaturedArtwork
               title="Serene Lake at Sunset"
