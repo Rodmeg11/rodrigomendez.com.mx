@@ -13,14 +13,10 @@ function CategoryShowcaseComponent({ title, image, href, description }: Category
   // Use specific background images for different categories
   let showcaseImage = image
 
-  if (title === "Watercolors") {
-    showcaseImage = "/images/watercolor-background.png"
-  } else if (title === "Sketchbook") {
-    showcaseImage = "/images/sketchbook-background.jpg"
-  } else if (title === "Paintings") {
-    showcaseImage = "/images/painting-abstract-colorful.png"
-  } else if (title === "Drawings") {
-    showcaseImage = "/images/drawing-venice-canal.jpeg"
+  if (title === "Sketchbook") {
+    showcaseImage = "/images/sketch-face-9.png" // Sketchbook: Expressive Portrait IX
+  } else if (title === "Watercolors") {
+    showcaseImage = "/images/watercolor-tree-landscape.png" // Soft and Fresh Breeze Under the Shade of The Tree
   }
 
   return (
