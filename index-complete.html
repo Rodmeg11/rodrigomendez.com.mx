@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rodrigo Méndez Gallery | Contemporary Art</title>
+    <meta name="description" content="Contemporary art gallery featuring watercolors, paintings, drawings and sketchbook works by Rodrigo Méndez">
+    <link rel="icon" href="/favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .header {
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .top-bar {
+            background: #000;
+            color: white;
+            padding: 8px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .social-links a:hover {
+            color: #ffd700;
+        }
+        
+        .main-header {
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #000;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.2s;
+            position: relative;
+            padding: 8px 0;
+        }
+        
+        .nav a:hover {
+            color: #667eea;
+        }
+        
+        .nav a:hover::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #667eea;
+        }
+        
+        .hero {
+            position: relative;
+            height: 80vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 16px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 2px;
+        }
+        
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 32px;
+            max-width: 600px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            opacity: 0.95;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: white;
+            color: #333;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin: 0 8px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border: 2px solid transparent;
+        }
+        
+        .btn:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: #333;
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            padding: 80px 16px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 48px;
+            text-align: center;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .grid {
+            display: grid;
+            gap: 32px;
+        }
+        
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+        
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        }
+        
+        .category-card {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 16px;
+            overflow: hidden;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        
+        .category-card:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+        }
+        
+        .category-watercolors {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+        }
+        
+        .category-paintings {
+            background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+        }
+        
+        .category-drawings {
+            background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%);
+        }
+        
+        .category-sketchbook {
+            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+        }
+        
+        .category-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            transition: background 0.3s;
+        }
+        
+        .category-card:hover .category-overlay {
+            background: rgba(0,0,0,0.5);
+        }
+        
+        .category-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .category-count {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .artwork-card {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background: white;
+        }
+        
+        .artwork-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+        
+        .artwork-image {
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(45deg, #f1f2f6, #ddd);
+        }
+        
+        .artwork-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .artwork-card:hover .artwork-image img {
+            transform: scale(1.05);
+        }
+        
+        .artwork-info {
+            padding: 24px;
+        }
+        
+        .artwork-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .artwork-category {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+        
+        .artwork-price {
+            font-weight: 600;
+            color: #667eea;
+            font-size: 1.1rem;
+        }
+        
+        .bg-gray {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        
+        .about-text {
+            font-size: 1.125rem;
+            line-height: 1.8;
+        }
+        
+        .about-text p {
+            margin-bottom: 24px;
+            color: #555;
+        }
+        
+        .about-image {
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 64px;
+            margin: 64px 0;
+            padding: 48px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #2d3436 0%, #000 100%);
+            color: white;
+            padding: 64px 16px 32px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+        
+        .footer h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+        
+        .footer h4 {
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .footer ul {
+            list-style: none;
+        }
+        
+        .footer ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer a:hover {
+            color: #ffd700;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 32px;
+            text-align: center;
+            color: #ccc;
+            font-size: 0.9rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .newsletter {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        
+        .newsletter input {
+            flex: 1;
+            padding: 14px;
+            border: 1px solid #444;
+            background: #333;
+            color: white;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        
+        .newsletter button {
+            padding: 14px 24px;
+            background: #ffd700;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        
+        .newsletter button:hover {
+            background: #ffed4e;
+            transform: translateY(-1px);
+        }
+        
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter {
+                flex-direction: column;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 32px;
+            }
+            
+            .section {
+                padding: 48px 16px;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="top-bar">
+            <div class="social-links">
+                <a href="https://www.instagram.com/rockdrigo.mendez/" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://www.youtube.com/@rodrigomendez7733" target="_blank" rel="noopener">YouTube</a>
+                <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
+            </div>
+            <div>
+                <a href="#newsletter" style="color: white; text-decoration: none;">SIGN UP FOR MY NEWSLETTER →</a>
+            </div>
+        </div>
+        <div class="main-header">
+            <a href="/" class="logo">RODRIGO MÉNDEZ</a>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="#collections">Collections</a>
+                <a href="about.html">About the Artist</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>RODRIGO MÉNDEZ</h1>
+            <p>Exploring artistic expression through watercolors, paintings, drawings and mixed media</p>
+            <div>
+                <a href="#collections" class="btn">Explore Collection</a>
+                <a href="about.html" class="btn btn-outline">About the Artist</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section">
+        <div class="stats fade-in">
+            <div class="stat">
+                <span class="stat-number">150+</span>
+                <span class="stat-label">Artworks Created</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">4</span>
+                <span class="stat-label">Art Techniques</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">20+</span>
+                <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Exhibitions</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section" id="collections">
+        <h2>Art Collections</h2>
+        <div class="grid grid-4">
+            <a href="watercolors.html" class="category-card category-watercolors">
+                <div class="category-overlay">
+                    <div class="category-title">Watercolors</div>
+                    <div class="category-count">25+ Original Works</div>
+                </div>
+            </a>
+            <a href="paintings.html" class="category-card category-paintings">
+                <div class="category-overlay">
+                    <div class="category-title">Paintings</div>
+                    <div class="category-count">30+ Original Works</div>
+                </div>
+            </a>
+            <a href="drawings.html" class="category-card category-drawings">
+                <div class="category-overlay">
+                    <div class="category-title">Drawings</div>
+                    <div class="category-count">15+ Original Works</div>
+                </div>
+            </a>
+            <a href="sketchbook.html" class="category-card category-sketchbook">
+                <div class="category-overlay">
+                    <div class="category-title">Sketchbook</div>
+                    <div class="category-count">50+ Studies</div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Featured Works -->
+    <section class="section bg-gray">
+        <h2>Featured Artworks</h2>
+        <div class="grid grid-3">
+            <a href="artwork-golden-fields.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/watercolor-golden-fields.png" alt="Golden Fields Panorama" loading="lazy" onerror="this.style.display='none'">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Golden Fields Panorama</div>
+                    <div class="artwork-category">Original Watercolor • 24" x 18"</div>
+                    <div class="artwork-price">$2,600.00</div>
+                </div>
+            </a>
+            <a href="artwork-bull-silhouette.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/painting-bull-silhouette.jpeg" alt="Bull Silhouette" loading="lazy" onerror="this.style.display='none'">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Bull Silhouette</div>
+                    <div class="artwork-category">Original Painting • 30" x 24"</div>
+                    <div class="artwork-price">$3,400.00</div>
+                </div>
+            </a>
+            <a href="artwork-eco.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/drawing-eco-eco.jpeg" alt="Eco" loading="lazy" onerror="this.style.display='none'">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Eco</div>
+                    <div class="artwork-category">Original Drawing • 16" x 12"</div>
+                    <div class="artwork-price">SOLD</div>
+                </div>
+            </a>
+            <a href="artwork-mountain-valley.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/watercolor-mountain-valley.png" alt="Mountain Valley Vista" loading="lazy" onerror="this.style.display='none'">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Mountain Valley Vista</div>
+                    <div class="artwork-category">Original Watercolor • 20" x 16"</div>
+                    <div class="artwork-price">$2,200.00</div>
+                </div>
+            </a>
+            <a href="artwork-abstract-figures.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/painting-abstract-figures.jpeg" alt="Abstract Figures" loading="lazy" onerror="this.style.display='none'">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Abstract Figures</div>
+                    <div class="artwork-category">Original Painting • 36" x 28"</div>
+                    <div class="artwork-price">$4,200.00</div>
+                </div>
+            </a>
+            <a href="artwork-venice-canal.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/drawing-venice-canal.jpeg" alt="Venice Canal" loading="lazy" onerror="this.style.display='none'">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Venice Canal</div>
+                    <div class="artwork-category">Original Drawing • 14" x 11"</div>
+                    <div class="artwork-price">$1,800.00</div>
+                </div>
+            </a>
+        </div>
+        <div style="text-align: center; margin-top: 48px;">
+            <a href="collections.html" class="btn">View All Collections</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <h2>About Rodrigo Méndez</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Rodrigo Méndez is a contemporary artist whose work spans multiple disciplines including watercolor, drawing, painting, and mixed media techniques. With a career spanning over two decades, his work has been exhibited in galleries across Mexico and internationally.</p>
+                <p>His landscapes are particularly notable for their emotional resonance, capturing not just the physical appearance of a place, but its mood and atmosphere. Through his masterful use of color and light, Méndez invites viewers to experience the tranquility and beauty of natural environments.</p>
+                <p>Each piece is created with meticulous attention to detail, whether it's the delicate transparency of watercolors, the bold strokes of oil paintings, or the intimate sketches that capture fleeting moments of inspiration.</p>
+                <a href="about.html" class="btn">Learn More About the Artist</a>
+            </div>
+            <div class="about-image">
+                <img src="images/artist-working.png" alt="Rodrigo Méndez in his studio" loading="lazy" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-grid">
+            <div>
+                <h3>RODRIGO MÉNDEZ</h3>
+                <p style="color: #ccc; margin-bottom: 20px;">Contemporary artist exploring expression through multiple techniques and media. Based in Mexico, creating art that connects with viewers worldwide.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/rockdrigo.mendez/" target="_blank" rel="noopener">Instagram</a>
+                    <a href="https://www.youtube.com/@rodrigomendez7733" target="_blank" rel="noopener">YouTube</a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
+                </div>
+            </div>
+            <div>
+                <h4>Art Collections</h4>
+                <ul>
+                    <li><a href="watercolors.html">Watercolors</a></li>
+                    <li><a href="paintings.html">Paintings</a></li>
+                    <li><a href="drawings.html">Drawings</a></li>
+                    <li><a href="sketchbook.html">Sketchbook Studies</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="about.html">About the Artist</a></li>
+                    <li><a href="contact.html">Contact & Commissions</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="exhibitions.html">Exhibitions</a></li>
+                </ul>
+            </div>
+            <div id="newsletter">
+                <h4>Stay Connected</h4>
+                <p style="color: #ccc; margin-bottom: 20px;">Subscribe to receive updates about new artworks, exhibitions, and exclusive behind-the-scenes content.</p>
+                <form class="newsletter" onsubmit="handleNewsletter(event)">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Rodrigo Méndez. All rights reserved. | Artwork reproduction prohibited without permission.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Add fade-in animation to sections when they come into view
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+        
+        // Newsletter form handler
+        function handleNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            if (email) {
+                alert('¡Gracias por suscribirte! Te mantendremos informado sobre nuevas obras y exposiciones.');
+                event.target.querySelector('input[type="email"]').value = '';
+            }
+        }
+        
+        // Add loading animation for images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
+            });
+        });
+    </script>
+</body>
+</html>

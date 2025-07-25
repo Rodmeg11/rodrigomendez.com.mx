@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState, useEffect, useCallback, useRef, memo } from "react"
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { OptimizedArtwork } from "@/components/optimized-artwork"
 import { shuffleArray } from "@/lib/utils"

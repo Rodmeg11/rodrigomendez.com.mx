@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paintings | Rodrigo Méndez Gallery</title>
+    <meta name="description" content="Original paintings by Rodrigo Méndez - abstract expressionism, mixed media, and contemporary works">
+    <link rel="icon" href="/favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .header {
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 100;
+        }
+        
+        .top-bar {
+            background: #000;
+            color: white;
+            padding: 8px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .social-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .main-header {
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #000;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 16px;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            margin-bottom: 32px;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        
+        .back-link:hover {
+            color: #666;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: bold;
+        }
+        
+        .collection-intro {
+            font-size: 1.125rem;
+            color: #666;
+            margin-bottom: 48px;
+            max-width: 600px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+        
+        .artwork-card {
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background: white;
+        }
+        
+        .artwork-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+        
+        .artwork-image {
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .artwork-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .artwork-card:hover .artwork-image img {
+            transform: scale(1.05);
+        }
+        
+        .artwork-info {
+            padding: 20px;
+        }
+        
+        .artwork-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .artwork-category {
+            color: #666;
+            font-size: 0.875rem;
+            margin-bottom: 8px;
+        }
+        
+        .artwork-details {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 12px;
+        }
+        
+        .artwork-price {
+            font-weight: 600;
+            color: #000;
+            font-size: 1rem;
+        }
+        
+        .footer {
+            background: #000;
+            color: white;
+            padding: 48px 16px 24px;
+            margin-top: 64px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="top-bar">
+            <div class="social-links">
+                <a href="https://www.instagram.com/rockdrigo.mendez/" target="_blank">Instagram</a>
+                <a href="https://www.youtube.com/@rodrigomendez7733" target="_blank">YouTube</a>
+                <a href="https://facebook.com" target="_blank">Facebook</a>
+            </div>
+            <div>
+                <a href="index.html#newsletter" style="color: white; text-decoration: none;">SIGN UP FOR MY NEWSLETTER →</a>
+            </div>
+        </div>
+        <div class="main-header">
+            <a href="index.html" class="logo">RODRIGO MÉNDEZ</a>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="index.html#collections">Collections</a>
+                <a href="about.html">About the Artist</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="index.html#collections" class="back-link">← Back to collections</a>
+        
+        <h1>Paintings</h1>
+        <p class="collection-intro">
+            Explore bold expressions through acrylic and mixed media works. These paintings showcase dynamic compositions, vibrant colors, and experimental techniques that push the boundaries of traditional painting.
+        </p>
+        
+        <div class="grid">
+            <a href="artwork-bull-silhouette.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/painting-bull-silhouette.jpeg" alt="Bull Silhouette">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Bull Silhouette</div>
+                    <div class="artwork-category">Original Painting</div>
+                    <div class="artwork-details">Mixed media on paper • 70 x 100 cm • 2023</div>
+                    <div class="artwork-price">$3,400.00</div>
+                </div>
+            </a>
+            
+            <a href="artwork-otono.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/painting-abstract-expressionist.jpeg" alt="Otoño">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Otoño</div>
+                    <div class="artwork-category">Original Painting</div>
+                    <div class="artwork-details">Acrylic on paper • 90 x 120 cm • 2023</div>
+                    <div class="artwork-price">$3,800.00</div>
+                </div>
+            </a>
+            
+            <a href="artwork-dynamic-action.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/painting-abstract-action.jpeg" alt="Dynamic Action">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Dynamic Action</div>
+                    <div class="artwork-category">Original Painting</div>
+                    <div class="artwork-details">Mixed media on canvas • 120 x 90 cm • 2024</div>
+                    <div class="artwork-price">$4,800.00</div>
+                </div>
+            </a>
+            
+            <a href="artwork-three-figures.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/painting-three-figures.jpeg" alt="Three Figures in Motion">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Three Figures in Motion</div>
+                    <div class="artwork-category">Original Painting</div>
+                    <div class="artwork-details">Mixed media on paper • 50 x 70 cm • 2024</div>
+                    <div class="artwork-price">$4,200.00</div>
+                </div>
+            </a>
+            
+            <a href="artwork-emerald-dreams.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/painting-abstract-green-pink.jpeg" alt="Emerald Dreams">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Emerald Dreams</div>
+                    <div class="artwork-category">Original Painting</div>
+                    <div class="artwork-details">Mixed media on canvas • 70 x 90 cm • 2024</div>
+                    <div class="artwork-price">$3,650.00</div>
+                </div>
+            </a>
+            
+            <a href="artwork-naturaleza-muerta-1.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/painting-still-life-series-1.jpeg" alt="Naturaleza Muerta I">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Naturaleza Muerta I</div>
+                    <div class="artwork-category">Original Painting</div>
+                    <div class="artwork-details">Acrylic on paper • 60 x 40 cm • 2022</div>
+                    <div class="artwork-price">$3,500.00</div>
+                </div>
+            </a>
+            
+            <a href="artwork-naturaleza-muerta-2.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/painting-still-life-series-2.jpeg" alt="Naturaleza Muerta II">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Naturaleza Muerta II</div>
+                    <div class="artwork-category">Original Painting</div>
+                    <div class="artwork-details">Acrylic on paper • 60 x 40 cm • 2022</div>
+                    <div class="artwork-price">$3,500.00</div>
+                </div>
+            </a>
+            
+            <a href="artwork-naturaleza-muerta-3.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/painting-still-life-series-3.jpeg" alt="Naturaleza Muerta III">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Naturaleza Muerta III</div>
+                    <div class="artwork-category">Original Painting</div>
+                    <div class="artwork-details">Acrylic on paper • 60 x 40 cm • 2022</div>
+                    <div class="artwork-price">$3,500.00</div>
+                </div>
+            </a>
+            
+            <a href="artwork-naturaleza-muerta-4.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/painting-still-life-series-4.jpeg" alt="Naturaleza Muerta IV">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Naturaleza Muerta IV</div>
+                    <div class="artwork-category">Original Painting</div>
+                    <div class="artwork-details">Acrylic on paper • 60 x 40 cm • 2022</div>
+                    <div class="artwork-price">$3,500.00</div>
+                </div>
+            </a>
+            
+            <a href="artwork-abstract-figures.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/painting-abstract-figures-new.jpeg" alt="Abstract Figures in Motion">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Abstract Figures in Motion</div>
+                    <div class="artwork-category">Original Painting</div>
+                    <div class="artwork-details">Acrylic on canvas • 60 x 80 cm • 2023</div>
+                    <div class="artwork-price">$3,200.00</div>
+                </div>
+            </a>
+            
+            <a href="artwork-golden-expression.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/painting-golden-expression.jpeg" alt="Golden Expression">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Golden Expression</div>
+                    <div class="artwork-category">Original Painting</div>
+                    <div class="artwork-details">Acrylic on canvas • 50 x 70 cm • 2023</div>
+                    <div class="artwork-price">$2,950.00</div>
+                </div>
+            </a>
+            
+            <a href="artwork-casiopea.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/painting-dark-abstraction.jpeg" alt="Casiopea">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Casiopea</div>
+                    <div class="artwork-category">Original Painting</div>
+                    <div class="artwork-details">Mixed media on canvas • 70 x 90 cm • 2017</div>
+                    <div class="artwork-price">$3,100.00</div>
+                </div>
+            </a>
+            
+            <a href="artwork-serpiente-emplumada.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/painting-organic-flow.jpeg" alt="Serpiente Emplumada">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Serpiente Emplumada</div>
+                    <div class="artwork-category">Original Painting</div>
+                    <div class="artwork-details">Mixed media on paper • 27 x 38 cm • 2022</div>
+                    <div class="artwork-price">$2,800.00</div>
+                </div>
+            </a>
+            
+            <a href="artwork-yellow-energy.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/painting-yellow-energy.jpeg" alt="Yellow Energy">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Yellow Energy</div>
+                    <div class="artwork-category">Original Painting</div>
+                    <div class="artwork-details">Mixed media on canvas • 65 x 85 cm • 2023</div>
+                    <div class="artwork-price">$2,750.00</div>
+                </div>
+            </a>
+            
+            <a href="artwork-preludio-giron.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/painting-geometric-composition.jpeg" alt="Preludio de Girón">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Preludio de Girón</div>
+                    <div class="artwork-category">Original Painting</div>
+                    <div class="artwork-details">Mixed media on paper • 77 x 62 cm • 2015</div>
+                    <div class="artwork-price">$3,000.00</div>
+                </div>
+            </a>
+            
+            <a href="artwork-gestural-marks.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/painting-gestural-marks.jpeg" alt="Gestural Marks">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Gestural Marks</div>
+                    <div class="artwork-category">Original Painting</div>
+                    <div class="artwork-details">Acrylic on canvas • 50 x 65 cm • 2023</div>
+                    <div class="artwork-price">$2,650.00</div>
+                </div>
+            </a>
+            
+            <a href="artwork-altar.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/painting-still-life-modern.jpeg" alt="Altar">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Altar</div>
+                    <div class="artwork-category">Original Painting</div>
+                    <div class="artwork-details">Mixed media on paper • 66 x 77 cm • 2015</div>
+                    <div class="artwork-price">$2,900.00</div>
+                </div>
+            </a>
+            
+            <a href="artwork-vibrant-landscape.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/painting-vibrant-landscape.jpeg" alt="Vibrant Landscape">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Vibrant Landscape</div>
+                    <div class="artwork-category">Original Painting</div>
+                    <div class="artwork-details">Acrylic on paper • 47 x 35 cm • 2023</div>
+                    <div class="artwork-price">$3,250.00</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2024 Rodrigo Méndez. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawings | Rodrigo Méndez Gallery</title>
+    <meta name="description" content="Original drawings by Rodrigo Méndez - charcoal, graphite, and pastel works">
+    <link rel="icon" href="/favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .header {
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 100;
+        }
+        
+        .top-bar {
+            background: #000;
+            color: white;
+            padding: 8px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .social-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .main-header {
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #000;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 16px;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            margin-bottom: 32px;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        
+        .back-link:hover {
+            color: #666;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: bold;
+        }
+        
+        .collection-intro {
+            font-size: 1.125rem;
+            color: #666;
+            margin-bottom: 48px;
+            max-width: 600px;
+        }
+        
+        .exhibition-note {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 16px;
+            margin-bottom: 32px;
+            border-radius: 4px;
+        }
+        
+        .exhibition-note h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .exhibition-note p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+        
+        .artwork-card {
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background: white;
+        }
+        
+        .artwork-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+        
+        .artwork-image {
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .artwork-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .artwork-card:hover .artwork-image img {
+            transform: scale(1.05);
+        }
+        
+        .artwork-info {
+            padding: 20px;
+        }
+        
+        .artwork-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .artwork-category {
+            color: #666;
+            font-size: 0.875rem;
+            margin-bottom: 8px;
+        }
+        
+        .artwork-details {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 12px;
+        }
+        
+        .artwork-price {
+            font-weight: 600;
+            color: #000;
+            font-size: 1rem;
+        }
+        
+        .sold {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+        
+        .not-for-sale {
+            color: #95a5a6;
+            font-weight: 600;
+        }
+        
+        .footer {
+            background: #000;
+            color: white;
+            padding: 48px 16px 24px;
+            margin-top: 64px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="top-bar">
+            <div class="social-links">
+                <a href="https://www.instagram.com/rockdrigo.mendez/" target="_blank">Instagram</a>
+                <a href="https://www.youtube.com/@rodrigomendez7733" target="_blank">YouTube</a>
+                <a href="https://facebook.com" target="_blank">Facebook</a>
+            </div>
+            <div>
+                <a href="index.html#newsletter" style="color: white; text-decoration: none;">SIGN UP FOR MY NEWSLETTER →</a>
+            </div>
+        </div>
+        <div class="main-header">
+            <a href="index.html" class="logo">RODRIGO MÉNDEZ</a>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="index.html#collections">Collections</a>
+                <a href="about.html">About the Artist</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="index.html#collections" class="back-link">← Back to collections</a>
+        
+        <h1>Drawings</h1>
+        <p class="collection-intro">
+            Expressive line work and detailed studies showcasing the fundamental power of drawing. These works explore form, emotion, and technique through various media including charcoal, graphite, and pastel.
+        </p>
+        
+        <div class="exhibition-note">
+            <h3>From the Solo Exhibition "Sentimiento al desnudo" (2021)</h3>
+            <p>Several works in this collection were featured in Rodrigo Méndez's acclaimed solo exhibition, exploring raw emotion and human expression through drawing.</p>
+        </div>
+        
+        <div class="grid">
+            <a href="artwork-eco.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/drawing-eco-eco.jpeg" alt="Eco">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Eco</div>
+                    <div class="artwork-category">Original Drawing - Sentimiento al desnudo</div>
+                    <div class="artwork-details">Graphite on paper • 70 x 47 cm • 2021</div>
+                    <div class="artwork-price sold">SOLD</div>
+                </div>
+            </a>
+            
+            <a href="artwork-sin-titulo.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/drawing-sin-titulo.jpeg" alt="Sin título">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Sin título</div>
+                    <div class="artwork-category">Original Drawing - Sentimiento al desnudo</div>
+                    <div class="artwork-details">Charcoal on paper • 76 x 54 cm • 2021</div>
+                    <div class="artwork-price not-for-sale">Not for Sale</div>
+                </div>
+            </a>
+            
+            <a href="artwork-silueta-claro-obscuro.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/drawing-silueta-claro-obscuro.jpeg" alt="Silueta en claro obscuro">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Silueta en claro obscuro</div>
+                    <div class="artwork-category">Original Drawing - Sentimiento al desnudo</div>
+                    <div class="artwork-details">Pastel on paper • 54 x 76 cm • 2021</div>
+                    <div class="artwork-price not-for-sale">Not for Sale</div>
+                </div>
+            </a>
+            
+            <a href="artwork-flor-cerezo.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/drawing-flor-de-cerezo.jpeg" alt="Flor de Cerezo">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Flor de Cerezo</div>
+                    <div class="artwork-category">Original Drawing - Sentimiento al desnudo</div>
+                    <div class="artwork-details">Pastel on paper • 76 x 54 cm • 2021</div>
+                    <div class="artwork-price not-for-sale">Not for Sale</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2024 Rodrigo Méndez. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

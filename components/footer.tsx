@@ -51,8 +51,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/collections/drawings" className="text-gray-400 hover:text-white">
-                  Drawings
+                <Link href="/collections/sketchbook" className="text-gray-400 hover:text-white">
+                  Sketchbook
                 </Link>
               </li>
               <li>
@@ -61,8 +61,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/collections/techniques" className="text-gray-400 hover:text-white">
-                  Mixed Techniques
+                <Link href="/collections/drawings" className="text-gray-400 hover:text-white">
+                  Drawings
                 </Link>
               </li>
             </ul>
@@ -86,11 +86,6 @@ export function Footer() {
                   FAQ
                 </Link>
               </li>
-              <li>
-                <Link href="/shipping" className="text-gray-400 hover:text-white">
-                  Shipping & Returns
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -107,14 +102,6 @@ export function Footer() {
         <div className="border-t border-gray-800 mt-12 pt-8 text-gray-400 text-sm">
           <div className="flex flex-col md:flex-row justify-between gap-4">
             <p>© {new Date().getFullYear()} Rodrigo Méndez. All rights reserved.</p>
-            <div className="flex gap-6">
-              <Link href="/privacy" className="hover:text-white">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="hover:text-white">
-                Terms & Conditions
-              </Link>
-            </div>
           </div>
         </div>
       </div>

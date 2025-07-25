@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Eye } from 'lucide-react'
+import { Eye } from "lucide-react"
 import { memo, useState, useRef, useEffect } from "react"
 
 interface OptimizedArtworkProps {

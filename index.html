@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rodrigo Méndez Gallery | Contemporary Art</title>
+    <meta name="description" content="Contemporary art gallery featuring watercolors, paintings, drawings and sketchbook works by Rodrigo Méndez">
+    <link rel="icon" href="/favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .header {
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .top-bar {
+            background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
+            color: white;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            padding: 5px 10px;
+            border-radius: 15px;
+        }
+        
+        .social-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .newsletter-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 8px 16px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 20px;
+        }
+        
+        .newsletter-link:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+        
+        .main-header {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #000;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+        }
+        
+        .logo:hover {
+            color: #667eea;
+            transform: scale(1.05);
+        }
+        
+        .nav {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            padding: 10px 0;
+        }
+        
+        .nav a:hover {
+            color: #667eea;
+        }
+        
+        .nav a:hover::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+        
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            transition: 0.3s;
+        }
+        
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
+            animation: gradientShift 8s ease-in-out infinite;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="white" opacity="0.1"/><circle cx="40" cy="80" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 0.6; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1.5s ease-out;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            letter-spacing: 3px;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            from { text-shadow: 3px 3px 6px rgba(0,0,0,0.3); }
+            to { text-shadow: 3px 3px 20px rgba(255,255,255,0.3); }
+        }
+        
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1.5s ease-out 0.5s both;
+        }
+        
+        .hero-buttons {
+            animation: fadeInUp 1.5s ease-out 1s both;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            background: white;
+            color: #333;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 0 10px;
+            transition: all 0.4s;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            background: #f8f9fa;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+        
+        .btn-outline {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 2px solid white;
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255,255,255,0.2);
+        }
+        
+        .section {
+            padding: 100px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section h2 {
+            font-size: 3rem;
+            margin-bottom: 60px;
+            text-align: center;
+            font-weight: bold;
+            color: #333;
+            position: relative;
+        }
+        
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            margin: 80px 0;
+            padding: 60px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .stat {
+            text-align: center;
+            animation: countUp 2s ease-out;
+        }
+        
+        @keyframes countUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .grid {
+            display: grid;
+            gap: 40px;
+        }
+        
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        }
+        
+        .category-card {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            text-decoration: none;
+            color: white;
+            transition: all 0.4s;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .category-card:hover {
+            transform: scale(1.08) rotate(2deg);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+        }
+        
+        .category-watercolors {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+        }
+        
+        .category-paintings {
+            background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+        }
+        
+        .category-drawings {
+            background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%);
+        }
+        
+        .category-sketchbook {
+            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+        }
+        
+        .category-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+            transition: all 0.4s;
+        }
+        
+        .category-card:hover .category-overlay {
+            background: rgba(0,0,0,0.5);
+        }
+        
+        .category-title {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            transform: translateY(10px);
+            transition: transform 0.4s;
+        }
+        
+        .category-card:hover .category-title {
+            transform: translateY(0);
+        }
+        
+        .category-count {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            transform: translateY(10px);
+            transition: transform 0.4s 0.1s;
+        }
+        
+        .category-card:hover .category-count {
+            transform: translateY(0);
+        }
+        
+        .artwork-card {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.4s;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: white;
+            position: relative;
+        }
+        
+        .artwork-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(102, 126, 234, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        
+        .artwork-card:hover::before {
+            opacity: 1;
+        }
+        
+        .artwork-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+        
+        .artwork-image {
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: #666;
+            font-weight: 500;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .artwork-info {
+            padding: 30px;
+            position: relative;
+        }
+        
+        .artwork-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .artwork-category {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .artwork-price {
+            font-weight: 600;
+            color: #667eea;
+            font-size: 1.2rem;
+        }
+        
+        .bg-gray {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+        
+        .about-text p {
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .about-image {
+            text-align: center;
+        }
+        
+        .about-placeholder {
+            width: 350px;
+            height: 450px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.1) 75%);
+            background-size: 20px 20px;
+            animation: shimmer 2s linear infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-20px); }
+            100% { transform: translateX(20px); }
+        }
+        
+        .testimonials {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .testimonials h2 {
+            color: white;
+            margin-bottom: 60px;
+        }
+        
+        .testimonials h2::after {
+            background: white;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .testimonial {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-style: italic;
+            line-height: 1.6;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            opacity: 0.9;
+        }
+        
+        .commissions {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            text-align: center;
+        }
+        
+        .commission-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .commission-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
+            color: white;
+            padding: 80px 20px 40px;
+            position: relative;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto 40px;
+        }
+        
+        .footer h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: #fff;
+        }
+        
+        .footer h4 {
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ddd;
+            font-size: 1.2rem;
+        }
+        
+        .footer ul {
+            list-style: none;
+        }
+        
+        .footer ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s;
+            padding: 5px 0;
+            display: inline-block;
+        }
+        
+        .footer a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 30px;
+            text-align: center;
+            color: #bbb;
+            font-size: 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .newsletter {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .newsletter input {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #555;
+            background: #444;
+            color: white;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+        
+        .newsletter input::placeholder {
+            color: #bbb;
+        }
+        
+        .newsletter button {
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        
+        .newsletter button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter {
+                flex-direction: column;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .section {
+                padding: 60px 20px;
+            }
+            
+            .section h2 {
+                font-size: 2.2rem;
+            }
+            
+            .btn {
+                display: block;
+                margin: 10px 0;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .main-header {
+                padding: 15px;
+            }
+            
+            .logo {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="top-bar">
+            <div class="social-links">
+                <a href="https://www.instagram.com/rockdrigo.mendez/" target="_blank">📱 Instagram</a>
+                <a href="https://www.youtube.com/@rodrigomendez7733" target="_blank">📺 YouTube</a>
+                <a href="https://facebook.com" target="_blank">📘 Facebook</a>
+            </div>
+            <div>
+                <a href="#newsletter" class="newsletter-link">SIGN UP FOR MY NEWSLETTER →</a>
+            </div>
+        </div>
+        <div class="main-header">
+            <a href="/" class="logo">RODRIGO MÉNDEZ</a>
+            <nav class="nav">
+                <a href="#home">Home</a>
+                <a href="#collections">Collections</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>RODRIGO MÉNDEZ</h1>
+            <p>Exploring artistic expression through multiple techniques and media</p>
+            <div class="hero-buttons">
+                <a href="#collections" class="btn">Explore Collection</a>
+                <a href="#about" class="btn btn-outline">About the Artist</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section">
+        <div class="stats">
+            <div class="stat">
+                <span class="stat-number">150+</span>
+                <span class="stat-label">Artworks</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">4</span>
+                <span class="stat-label">Techniques</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">20+</span>
+                <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Exhibitions</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section" id="collections">
+        <h2>Art Collections</h2>
+        <div class="grid grid-4">
+            <a href="#watercolors" class="category-card category-watercolors">
+                <div class="category-overlay">
+                    <div class="category-title">Watercolors</div>
+                    <div class="category-count">25+ Original Works</div>
+                </div>
+            </a>
+            <a href="#paintings" class="category-card category-paintings">
+                <div class="category-overlay">
+                    <div class="category-title">Paintings</div>
+                    <div class="category-count">30+ Original Works</div>
+                </div>
+            </a>
+            <a href="#drawings" class="category-card category-drawings">
+                <div class="category-overlay">
+                    <div class="category-title">Drawings</div>
+                    <div class="category-count">15+ Original Works</div>
+                </div>
+            </a>
+            <a href="#sketchbook" class="category-card category-sketchbook">
+                <div class="category-overlay">
+                    <div class="category-title">Sketchbook</div>
+                    <div class="category-count">50+ Studies</div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Featured Works -->
+    <section class="section bg-gray">
+        <h2>Featured Works</h2>
+        <div class="grid grid-3">
+            <div class="artwork-card">
+                <div class="artwork-image">🎨 Golden Fields Panorama</div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Golden Fields Panorama</div>
+                    <div class="artwork-category">Original Watercolor</div>
+                    <div class="artwork-price">$2,600.00</div>
+                </div>
+            </div>
+            <div class="artwork-card">
+                <div class="artwork-image">🐂 Bull Silhouette</div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Bull Silhouette</div>
+                    <div class="artwork-category">Original Painting</div>
+                    <div class="artwork-price">$3,400.00</div>
+                </div>
+            </div>
+            <div class="artwork-card">
+                <div class="artwork-image">🌿 Eco</div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Eco</div>
+                    <div class="artwork-category">Original Drawing</div>
+                    <div class="artwork-price">SOLD</div>
+                </div>
+            </div>
+            <div class="artwork-card">
+                <div class="artwork-image">🍂 Otoño</div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Otoño</div>
+                    <div class="artwork-category">Original Painting</div>
+                    <div class="artwork-price">$3,800.00</div>
+                </div>
+            </div>
+            <div class="artwork-card">
+                <div class="artwork-image">👤 Expressive Portrait I</div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Expressive Portrait I</div>
+                    <div class="artwork-category">Sketchbook Study</div>
+                    <div class="artwork-price">Personal Collection</div>
+                </div>
+            </div>
+            <div class="artwork-card">
+                <div class="artwork-image">🏔️ Mountain Valley Vista</div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Mountain Valley Vista</div>
+                    <div class="artwork-category">Original Watercolor</div>
+                    <div class="artwork-price">$2,400.00</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <h2>About Rodrigo Méndez</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Rodrigo Méndez is a contemporary artist whose work spans multiple disciplines including watercolor, drawing, painting, and mixed media techniques. With a career spanning over two decades, his work has been exhibited in galleries across Mexico and internationally.</p>
+                <p>His landscapes are particularly notable for their emotional resonance, capturing not just the physical appearance of a place, but its mood and atmosphere. Through his masterful use of color and light, Méndez invites viewers to experience the tranquility and beauty of natural environments.</p>
+                <p>Born in Mexico City, he has developed a distinctive style that blends traditional techniques with contemporary sensibilities, creating works that speak to both the heart and the mind.</p>
+                <a href="#contact" class="btn">Commission a Work</a>
+            </div>
+            <div class="about-image">
+                <div class="about-placeholder">🎨 Artist in Studio</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <h2>What Collectors Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <div class="testimonial-text">"Rodrigo's watercolors capture the essence of Mexico's landscapes with incredible sensitivity. Each piece tells a story."</div>
+                <div class="testimonial-author">— María González, Art Collector</div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-text">"The emotional depth in his work is remarkable. I've been collecting his pieces for over 10 years."</div>
+                <div class="testimonial-author">— Carlos Ruiz, Gallery Owner</div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-text">"His technique is masterful, but it's the soul in each painting that makes them truly special."</div>
+                <div class="testimonial-author">— Ana Martínez, Art Critic</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commissions -->
+    <section class="commissions">
+        <h2>Commission a Custom Work</h2>
+        <div class="commission-content">
+            <p>Interested in a custom piece? Rodrigo accepts a limited number of commissions each year, creating personalized artworks that capture your vision and story.</p>
+            <p>From intimate portraits to expansive landscapes, each commission is a collaborative journey resulting in a unique work of art tailored specifically for you.</p>
+            <a href="#contact" class="btn">Start Your Commission</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-grid">
+            <div>
+                <h3>RODRIGO MÉNDEZ</h3>
+                <p style="color: #bbb; margin-bottom: 20px; line-height: 1.6;">Exploring artistic expression through multiple techniques and media. Creating meaningful connections between art and life.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/rockdrigo.mendez/" target="_blank">📱 Instagram</a>
+                    <a href="https://www.youtube.com/@rodrigomendez7733" target="_blank">📺 YouTube</a>
+                    <a href="https://facebook.com" target="_blank">📘 Facebook</a>
+                </div>
+            </div>
+            <div>
+                <h4>Collections</h4>
+                <ul>
+                    <li><a href="#watercolors">Watercolor Paintings</a></li>
+                    <li><a href="#paintings">Oil & Acrylic Paintings</a></li>
+                    <li><a href="#drawings">Charcoal & Pencil Drawings</a></li>
+                    <li><a href="#sketchbook">Sketchbook Studies</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#commissions">Custom Commissions</a></li>
+                    <li><a href="#exhibitions">Exhibition History</a></li>
+                    <li><a href="#workshops">Art Workshops</a></li>
+                    <li><a href="#prints">Limited Edition Prints</a></li>
+                </ul>
+            </div>
+            <div id="newsletter">
+                <h4>Stay Connected</h4>
+                <p style="color: #bbb; margin-bottom: 20px;">Subscribe to receive news about new works, exhibitions, and exclusive previews.</p>
+                <form class="newsletter">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Rodrigo Méndez. All rights reserved. | Designed with passion for art and creativity.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Newsletter form submission
+        const newsletterForm = document.querySelector('.newsletter');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = this.querySelector('input[type="email"]').value;
+                if (email) {
+                    alert('¡Gracias por suscribirte! Te mantendremos informado sobre nuevas obras y exposiciones.');
+                    this.querySelector('input[type="email"]').value = '';
+                }
+            });
+        }
+        
+        // Mobile menu toggle (basic functionality)
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const nav = document.querySelector('.nav');
+        
+        if (mobileMenu) {
+            mobileMenu.addEventListener('click', function() {
+                nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            });
+        }
+        
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            }
+        });
+        
+        // Animate stats on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'countUp 2s ease-out';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.stat').forEach(stat => {
+            observer.observe(stat);
+        });
+    </script>
+</body>
+</html>

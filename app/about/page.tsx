@@ -32,66 +32,16 @@ export default function AboutPage() {
             of nostalgia and contemplation.
           </p>
         </div>
-        <div className="relative h-[500px] rounded-lg overflow-hidden">
-          <Image
-            src="/placeholder.svg?height=1000&width=800"
-            alt="Rodrigo Méndez in his studio"
-            fill
-            className="object-cover"
-          />
-        </div>
-      </div>
-
-      <div className="mb-16">
-        <h2 className="text-3xl font-bold mb-6">Artistic Philosophy</h2>
-        <div className="grid md:grid-cols-2 gap-12">
-          <p className="text-lg">
-            "My work is an ongoing exploration of the relationship between human experience and the natural world. I
-            believe that art has the power to connect us to something larger than ourselves, to evoke emotions and
-            memories that might otherwise remain dormant. Through my paintings and drawings, I seek to create spaces for
-            contemplation and reflection, inviting viewers to pause and connect with their own inner landscapes as they
-            engage with the visual ones I create."
-            <span className="block mt-4 font-medium">— Rodrigo Méndez</span>
-          </p>
-          <p className="text-lg">
-            Méndez's approach to art-making is both intuitive and methodical. He often begins with direct observations
-            from nature, creating field sketches and studies that capture immediate impressions. These initial responses
-            then evolve in the studio, where memory, emotion, and artistic intention guide the development of more
-            complex works. This process allows for a dialogue between direct experience and artistic interpretation,
-            resulting in works that feel both authentic and transcendent.
-          </p>
-        </div>
-      </div>
-
-      <div className="mb-16">
-        <h2 className="text-3xl font-bold mb-6">Techniques & Materials</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-bold mb-4">Watercolor</h3>
-            <p>
-              Méndez's watercolor technique emphasizes transparency and luminosity. He works with high-quality pigments
-              on specialized papers, often employing wet-on-wet techniques to create soft transitions and atmospheric
-              effects. His approach balances controlled precision with the medium's inherent fluidity and
-              unpredictability.
-            </p>
-          </div>
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-bold mb-4">Drawing</h3>
-            <p>
-              In his drawings, Méndez demonstrates exceptional technical skill and expressive range. Working primarily
-              with charcoal, graphite, and pastel, he creates works that range from detailed observational studies to
-              more abstract explorations of form and emotion. His line work is distinctive for its sensitivity and
-              dynamism.
-            </p>
-          </div>
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-bold mb-4">Mixed Techniques</h3>
-            <p>
-              Méndez's mixed media works represent his most experimental approach. Combining traditional drawing and
-              painting materials with collage, digital elements, and unconventional materials, these pieces push
-              boundaries and explore contemporary themes while maintaining his characteristic sensitivity to composition
-              and mood.
-            </p>
+        <div className="flex justify-center items-center">
+          <div className="relative max-w-full max-h-[600px]">
+            <Image
+              src="/images/artist-working.png"
+              alt="Rodrigo Méndez in his studio"
+              width={500}
+              height={750}
+              className="object-contain"
+              priority
+            />
           </div>
         </div>
       </div>
@@ -99,40 +49,40 @@ export default function AboutPage() {
       <div>
         <h2 className="text-3xl font-bold mb-6">Exhibitions & Recognition</h2>
         <ul className="space-y-6">
-          <li className="border-b pb-6">
+          <li className="border-b pb-6 dark:border-gray-700">
             <div className="flex justify-between items-start mb-2">
               <h3 className="text-xl font-bold">Solo Exhibition: "Landscapes of Memory"</h3>
-              <span className="text-gray-500">2023</span>
+              <span className="text-gray-500 dark:text-gray-400">2023</span>
             </div>
-            <p className="text-gray-700">Gallery Modern Art, Mexico City, Mexico</p>
+            <p className="text-gray-700 dark:text-gray-300">Gallery Modern Art, Mexico City, Mexico</p>
           </li>
-          <li className="border-b pb-6">
+          <li className="border-b pb-6 dark:border-gray-700">
             <div className="flex justify-between items-start mb-2">
               <h3 className="text-xl font-bold">Group Exhibition: "Contemporary Watercolor Masters"</h3>
-              <span className="text-gray-500">2022</span>
+              <span className="text-gray-500 dark:text-gray-400">2022</span>
             </div>
-            <p className="text-gray-700">International Art Center, Barcelona, Spain</p>
+            <p className="text-gray-700 dark:text-gray-300">International Art Center, Barcelona, Spain</p>
           </li>
-          <li className="border-b pb-6">
+          <li className="border-b pb-6 dark:border-gray-700">
             <div className="flex justify-between items-start mb-2">
               <h3 className="text-xl font-bold">Award: Excellence in Watercolor</h3>
-              <span className="text-gray-500">2021</span>
+              <span className="text-gray-500 dark:text-gray-400">2021</span>
             </div>
-            <p className="text-gray-700">National Association of Visual Artists</p>
+            <p className="text-gray-700 dark:text-gray-300">National Association of Visual Artists</p>
           </li>
-          <li className="border-b pb-6">
+          <li className="border-b pb-6 dark:border-gray-700">
             <div className="flex justify-between items-start mb-2">
               <h3 className="text-xl font-bold">Solo Exhibition: "Between Light and Shadow"</h3>
-              <span className="text-gray-500">2020</span>
+              <span className="text-gray-500 dark:text-gray-400">2020</span>
             </div>
-            <p className="text-gray-700">Contemporary Art Museum, Monterrey, Mexico</p>
+            <p className="text-gray-700 dark:text-gray-300">Contemporary Art Museum, Monterrey, Mexico</p>
           </li>
           <li>
             <div className="flex justify-between items-start mb-2">
               <h3 className="text-xl font-bold">Residency Program</h3>
-              <span className="text-gray-500">2019</span>
+              <span className="text-gray-500 dark:text-gray-400">2019</span>
             </div>
-            <p className="text-gray-700">International Arts Foundation, New York, USA</p>
+            <p className="text-gray-700 dark:text-gray-300">International Arts Foundation, New York, USA</p>
           </li>
         </ul>
       </div>

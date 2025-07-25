@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About the Artist | Rodrigo Méndez Gallery</title>
+    <meta name="description" content="Learn about Rodrigo Méndez, his artistic journey, techniques, and philosophy">
+    <link rel="icon" href="/favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .header {
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 100;
+        }
+        
+        .top-bar {
+            background: #000;
+            color: white;
+            padding: 8px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .social-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .main-header {
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #000;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 16px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 48px;
+            font-weight: bold;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            margin-bottom: 64px;
+        }
+        
+        .about-text {
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+        
+        .about-text p {
+            margin-bottom: 24px;
+        }
+        
+        .about-image {
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        
+        .exhibitions {
+            margin-top: 64px;
+        }
+        
+        .exhibitions h2 {
+            font-size: 2rem;
+            margin-bottom: 32px;
+            font-weight: bold;
+        }
+        
+        .exhibition-item {
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 24px;
+            margin-bottom: 24px;
+        }
+        
+        .exhibition-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 8px;
+        }
+        
+        .exhibition-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+        
+        .exhibition-year {
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .exhibition-location {
+            color: #666;
+        }
+        
+        .techniques-section {
+            background: #f8f9fa;
+            padding: 48px;
+            border-radius: 12px;
+            margin: 64px 0;
+        }
+        
+        .techniques-section h2 {
+            font-size: 2rem;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        
+        .techniques-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+        
+        .technique-card {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .technique-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: #333;
+        }
+        
+        .technique-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .footer {
+            background: #000;
+            color: white;
+            padding: 48px 16px 24px;
+            margin-top: 64px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .exhibition-header {
+                flex-direction: column;
+                align-items: start;
+            }
+            
+            .techniques-section {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="top-bar">
+            <div class="social-links">
+                <a href="https://www.instagram.com/rockdrigo.mendez/" target="_blank">Instagram</a>
+                <a href="https://www.youtube.com/@rodrigomendez7733" target="_blank">YouTube</a>
+                <a href="https://facebook.com" target="_blank">Facebook</a>
+            </div>
+            <div>
+                <a href="index.html#newsletter" style="color: white; text-decoration: none;">SIGN UP FOR MY NEWSLETTER →</a>
+            </div>
+        </div>
+        <div class="main-header">
+            <a href="index.html" class="logo">RODRIGO MÉNDEZ</a>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="index.html#collections">Collections</a>
+                <a href="about.html">About the Artist</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>About the Artist</h1>
+        
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Rodrigo Méndez is a contemporary artist whose work spans multiple disciplines including watercolor, drawing, painting, and mixed media techniques. With a career spanning over two decades, his work has been exhibited in galleries across Mexico and internationally.</p>
+                
+                <p>Born in Mexico City, Méndez developed an early interest in visual arts, particularly drawn to the expressive potential of watercolor and its ability to capture light and atmosphere. His formal training at the National School of Painting, Sculpture and Printmaking "La Esmeralda" provided him with a strong technical foundation, while his subsequent explorations have led him to develop a distinctive style that blends traditional techniques with contemporary sensibilities.</p>
+                
+                <p>His landscapes are particularly notable for their emotional resonance, capturing not just the physical appearance of a place, but its mood and atmosphere. Through his masterful use of color and light, Méndez invites viewers to experience the tranquility and beauty of natural environments, often infused with a sense of nostalgia and contemplation.</p>
+            </div>
+            <div class="about-image">
+                <img src="images/artist-working.png" alt="Rodrigo Méndez in his studio">
+            </div>
+        </div>
+        
+        <div class="techniques-section">
+            <h2>Artistic Techniques & Media</h2>
+            <div class="techniques-grid">
+                <div class="technique-card">
+                    <h3>Watercolor</h3>
+                    <p>Masterful use of transparency and fluidity to capture light, atmosphere, and emotion in landscapes and abstract compositions.</p>
+                </div>
+                <div class="technique-card">
+                    <h3>Mixed Media Paintings</h3>
+                    <p>Bold experimental works combining acrylic, collage, and various materials to create dynamic, textured compositions.</p>
+                </div>
+                <div class="technique-card">
+                    <h3>Drawing</h3>
+                    <p>Expressive line work using charcoal, graphite, and pastel to explore form, emotion, and the human condition.</p>
+                </div>
+                <div class="technique-card">
+                    <h3>Sketchbook Studies</h3>
+                    <p>Raw, spontaneous explorations that capture the essence of the creative process and artistic experimentation.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="exhibitions">
+            <h2>Exhibitions & Recognition</h2>
+            
+            <div class="exhibition-item">
+                <div class="exhibition-header">
+                    <div class="exhibition-title">Solo Exhibition: "Landscapes of Memory"</div>
+                    <div class="exhibition-year">2023</div>
+                </div>
+                <div class="exhibition-location">Gallery Modern Art, Mexico City, Mexico</div>
+            </div>
+            
+            <div class="exhibition-item">
+                <div class="exhibition-header">
+                    <div class="exhibition-title">Group Exhibition: "Contemporary Watercolor Masters"</div>
+                    <div class="exhibition-year">2022</div>
+                </div>
+                <div class="exhibition-location">International Art Center, Barcelona, Spain</div>
+            </div>
+            
+            <div class="exhibition-item">
+                <div class="exhibition-header">
+                    <div class="exhibition-title">Solo Exhibition: "Sentimiento al desnudo"</div>
+                    <div class="exhibition-year">2021</div>
+                </div>
+                <div class="exhibition-location">Contemporary Art Gallery, Mexico City, Mexico</div>
+            </div>
+            
+            <div class="exhibition-item">
+                <div class="exhibition-header">
+                    <div class="exhibition-title">Award: Excellence in Watercolor</div>
+                    <div class="exhibition-year">2021</div>
+                </div>
+                <div class="exhibition-location">National Association of Visual Artists</div>
+            </div>
+            
+            <div class="exhibition-item">
+                <div class="exhibition-header">
+                    <div class="exhibition-title">Solo Exhibition: "Between Light and Shadow"</div>
+                    <div class="exhibition-year">2020</div>
+                </div>
+                <div class="exhibition-location">Contemporary Art Museum, Monterrey, Mexico</div>
+            </div>
+            
+            <div class="exhibition-item">
+                <div class="exhibition-header">
+                    <div class="exhibition-title">Residency Program</div>
+                    <div class="exhibition-year">2019</div>
+                </div>
+                <div class="exhibition-location">International Arts Foundation, New York, USA</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2024 Rodrigo Méndez. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

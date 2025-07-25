@@ -1,10 +1,11 @@
 import type { Metadata } from "next"
-import { Mail, Phone, MapPin, Clock } from "lucide-react"
+import { Mail, Phone, MapPin, Clock, Facebook, Instagram, Youtube } from "lucide-react"
 
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "Contact | Rodrigo Méndez Gallery",
@@ -122,24 +123,34 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div>
-            <h2 className="text-2xl font-bold mb-4">Follow on Social Media</h2>
-            <p className="mb-4">
-              Stay updated with new works, exhibitions, and behind-the-scenes content by following Rodrigo Méndez on
-              social media.
-            </p>
-            <div className="flex space-x-4">
-              <Button variant="outline" asChild>
-                <a href="https://www.instagram.com/rockdrigo.mendez/" target="_blank" rel="noopener noreferrer">
-                  Instagram
-                </a>
-              </Button>
-              <Button variant="outline" asChild>
-                <a href="https://www.youtube.com/@rodrigomendez7733" target="_blank" rel="noopener noreferrer">
-                  YouTube
-                </a>
-              </Button>
-            </div>
+          <div className="flex space-x-4">
+            <Link
+              href="https://www.facebook.com"
+              className="hover:text-gray-300"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Facebook size={20} />
+              <span className="sr-only">Facebook</span>
+            </Link>
+            <Link
+              href="https://www.instagram.com/rockdrigo.mendez/"
+              className="hover:text-gray-300"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Instagram size={20} />
+              <span className="sr-only">Instagram</span>
+            </Link>
+            <Link
+              href="https://www.youtube.com/@rodrigomendez7733"
+              className="hover:text-gray-300"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Youtube size={20} />
+              <span className="sr-only">YouTube</span>
+            </Link>
           </div>
         </div>
       </div>

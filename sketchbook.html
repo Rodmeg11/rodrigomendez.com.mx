@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sketchbook Studies | Rodrigo Méndez Gallery</title>
+    <meta name="description" content="Sketchbook studies and expressive portraits by Rodrigo Méndez - raw artistic exploration">
+    <link rel="icon" href="/favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+        
+        .header {
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 100;
+        }
+        
+        .top-bar {
+            background: #000;
+            color: white;
+            padding: 8px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .social-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .main-header {
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #000;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 16px;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            margin-bottom: 32px;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        
+        .back-link:hover {
+            color: #666;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: bold;
+        }
+        
+        .collection-intro {
+            font-size: 1.125rem;
+            color: #666;
+            margin-bottom: 32px;
+            max-width: 600px;
+        }
+        
+        .collection-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 32px;
+        }
+        
+        .collection-note h3 {
+            color: #856404;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+        
+        .collection-note p {
+            color: #856404;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        
+        .artwork-card {
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            background: white;
+            border: 1px solid #e9ecef;
+        }
+        
+        .artwork-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        
+        .artwork-image {
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            position: relative;
+            background: #f8f9fa;
+        }
+        
+        .artwork-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .artwork-card:hover .artwork-image img {
+            transform: scale(1.03);
+        }
+        
+        .artwork-info {
+            padding: 16px;
+        }
+        
+        .artwork-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .artwork-category {
+            color: #666;
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+        }
+        
+        .artwork-details {
+            font-size: 0.75rem;
+            color: #888;
+            margin-bottom: 8px;
+        }
+        
+        .artwork-status {
+            font-size: 0.85rem;
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        .footer {
+            background: #000;
+            color: white;
+            padding: 48px 16px 24px;
+            margin-top: 64px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="top-bar">
+            <div class="social-links">
+                <a href="https://www.instagram.com/rockdrigo.mendez/" target="_blank">Instagram</a>
+                <a href="https://www.youtube.com/@rodrigomendez7733" target="_blank">YouTube</a>
+                <a href="https://facebook.com" target="_blank">Facebook</a>
+            </div>
+            <div>
+                <a href="index.html#newsletter" style="color: white; text-decoration: none;">SIGN UP FOR MY NEWSLETTER →</a>
+            </div>
+        </div>
+        <div class="main-header">
+            <a href="index.html" class="logo">RODRIGO MÉNDEZ</a>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="index.html#collections">Collections</a>
+                <a href="about.html">About the Artist</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="index.html#collections" class="back-link">← Back to collections</a>
+        
+        <h1>Sketchbook Studies</h1>
+        <p class="collection-intro">
+            Raw artistic exploration through expressive portraits and gestural studies. These intimate works capture the spontaneous energy and experimental nature of the creative process.
+        </p>
+        
+        <div class="collection-note">
+            <h3>About This Collection</h3>
+            <p><strong>Note:</strong> The pieces in this collection are part of the artist's personal sketchbook studies and represent the creative process behind finished works. These studies are not available for purchase.</p>
+        </div>
+        
+        <div class="grid">
+            <a href="artwork-sketch-1.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/sketch-face-1.png" alt="Expressive Portrait I">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Expressive Portrait I</div>
+                    <div class="artwork-category">Sketchbook Study</div>
+                    <div class="artwork-details">Pen on paper • 21 x 29.7 cm • 2023</div>
+                    <div class="artwork-status">Personal Collection</div>
+                </div>
+            </a>
+            
+            <a href="artwork-sketch-2.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/sketch-face-2.png" alt="Expressive Portrait II">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Expressive Portrait II</div>
+                    <div class="artwork-category">Sketchbook Study</div>
+                    <div class="artwork-details">Pen on paper • 21 x 29.7 cm • 2023</div>
+                    <div class="artwork-status">Personal Collection</div>
+                </div>
+            </a>
+            
+            <a href="artwork-sketch-3.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/sketch-face-3.png" alt="Expressive Portrait III">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Expressive Portrait III</div>
+                    <div class="artwork-category">Sketchbook Study</div>
+                    <div class="artwork-details">Pen on paper • 21 x 29.7 cm • 2023</div>
+                    <div class="artwork-status">Personal Collection</div>
+                </div>
+            </a>
+            
+            <a href="artwork-sketch-4.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/sketch-face-4.png" alt="Expressive Portrait IV">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Expressive Portrait IV</div>
+                    <div class="artwork-category">Sketchbook Study</div>
+                    <div class="artwork-details">Pen on paper • 21 x 29.7 cm • 2023</div>
+                    <div class="artwork-status">Personal Collection</div>
+                </div>
+            </a>
+            
+            <a href="artwork-sketch-5.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/sketch-face-5.png" alt="Expressive Portrait V">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Expressive Portrait V</div>
+                    <div class="artwork-category">Sketchbook Study</div>
+                    <div class="artwork-details">Pen on paper • 21 x 29.7 cm • 2023</div>
+                    <div class="artwork-status">Personal Collection</div>
+                </div>
+            </a>
+            
+            <a href="artwork-sketch-6.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/sketch-face-6.png" alt="Expressive Portrait VI">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Expressive Portrait VI</div>
+                    <div class="artwork-category">Sketchbook Study</div>
+                    <div class="artwork-details">Pen on paper • 21 x 29.7 cm • 2023</div>
+                    <div class="artwork-status">Personal Collection</div>
+                </div>
+            </a>
+            
+            <a href="artwork-sketch-7.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/sketch-face-7.png" alt="Expressive Portrait VII">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Expressive Portrait VII</div>
+                    <div class="artwork-category">Sketchbook Study</div>
+                    <div class="artwork-details">Pen on paper • 21 x 29.7 cm • 2023</div>
+                    <div class="artwork-status">Personal Collection</div>
+                </div>
+            </a>
+            
+            <a href="artwork-sketch-8.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/sketch-face-8.png" alt="Expressive Portrait VIII">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Expressive Portrait VIII</div>
+                    <div class="artwork-category">Sketchbook Study</div>
+                    <div class="artwork-details">Pen on paper • 21 x 29.7 cm • 2023</div>
+                    <div class="artwork-status">Personal Collection</div>
+                </div>
+            </a>
+            
+            <a href="artwork-sketch-9.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/sketch-face-9.png" alt="Expressive Portrait IX">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Expressive Portrait IX</div>
+                    <div class="artwork-category">Sketchbook Study</div>
+                    <div class="artwork-details">Pen on paper • 21 x 29.7 cm • 2023</div>
+                    <div class="artwork-status">Personal Collection</div>
+                </div>
+            </a>
+            
+            <a href="artwork-sketch-10.html" class="artwork-card">
+                <div class="artwork-image">
+                    <img src="images/sketch-face-10.png" alt="Expressive Portrait X">
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title">Expressive Portrait X</div>
+                    <div class="artwork-category">Sketchbook Study</div>
+                    <div class="artwork-details">Pen on paper • 21 x 29.7 cm • 2023</div>
+                    <div class="artwork-status">Personal Collection</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2024 Rodrigo Méndez. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

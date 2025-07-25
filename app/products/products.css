@@ -1,16 +1,19 @@
 .image-container {
   position: relative;
   width: 100%;
-  height: auto;
-  min-height: 500px;
-  max-height: 700px;
-  overflow: hidden;
-  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  overflow: visible; /* Cambiado de overflow: hidden para evitar recortes */
   margin-bottom: 2rem;
 }
 
 .image-container img {
   transition: transform 0.3s ease;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain; /* Mantiene la relación de aspecto y muestra la imagen completa */
 }
 
 .image-container:hover .zoom-indicator {
@@ -29,4 +32,104 @@
   align-items: center;
   opacity: 0.8;
   transition: opacity 0.3s ease;
+}
+
+/* Mobile touch improvements */
+@media (max-width: 768px) {
+  .image-container {
+    touch-action: manipulation;
+  }
+
+  .image-container img {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  a,
+  button {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .image-container {
+    margin-bottom: 0;
+  }
+}
+
+/* Vertical image specific styles - APLICADO A TODAS LAS CATEGORÍAS */
+@media (min-width: 768px) {
+  .image-container.vertical-image {
+    /* Eliminado max-height para evitar recortes */
+  }
+
+  .image-container.vertical-image img {
+    /* Eliminado max-height para evitar recortes */
+    transform: none; /* Eliminado scale para evitar recortes */
+  }
+}
+
+/* Para pantallas más grandes - APLICADO A TODAS LAS CATEGORÍAS */
+@media (min-width: 1024px) {
+  .image-container.vertical-image {
+    /* Eliminado max-height para evitar recortes */
+  }
+
+  .image-container.vertical-image img {
+    /* Eliminado max-height para evitar recortes */
+    transform: none; /* Eliminado scale para evitar recortes */
+  }
+
+  /* WATERCOLOR ALIGNMENT - Alinear todas las acuarelas con la parte superior del título */
+  .image-container.watercolor-small,
+  .image-container.watercolor-medium,
+  .image-container.watercolor-large {
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 0;
+    margin-top: 0;
+  }
+
+  /* WATERCOLOR SIZE VARIATIONS - SOLO DESKTOP */
+
+  /* Acuarelas pequeñas (21x29.7cm, 24x32cm) */
+  .image-container.watercolor-small img {
+    max-width: 100%; /* Cambiado para evitar recortes */
+    transform: none; /* Eliminado scale para evitar recortes */
+  }
+
+  /* Acuarelas medianas (28x38cm, 30x40cm, 30x42cm, 32x42cm) */
+  .image-container.watercolor-medium img {
+    max-width: 100%; /* Cambiado para evitar recortes */
+    transform: none; /* Eliminado scale para evitar recortes */
+  }
+
+  /* Acuarelas grandes (35x45cm, 35x50cm, 38x55cm, 32x45cm) */
+  .image-container.watercolor-large img {
+    max-width: 100%; /* Cambiado para evitar recortes */
+    transform: none; /* Eliminado scale para evitar recortes */
+  }
+
+  /* Override para acuarelas verticales - aplicar layout de sketchbook */
+  .image-container.vertical-image.watercolor-small,
+  .image-container.vertical-image.watercolor-medium,
+  .image-container.vertical-image.watercolor-large {
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 0;
+    margin-top: 0;
+  }
+
+  .image-container.vertical-image.watercolor-small img {
+    transform: none; /* Eliminado scale para evitar recortes */
+  }
+
+  .image-container.vertical-image.watercolor-medium img {
+    transform: none; /* Eliminado scale para evitar recortes */
+  }
+
+  .image-container.vertical-image.watercolor-large img {
+    transform: none; /* Eliminado scale para evitar recortes */
+  }
 }
