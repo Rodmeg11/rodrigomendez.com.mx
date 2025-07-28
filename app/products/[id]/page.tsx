@@ -54,21 +54,6 @@ export default function ProductPage({ params }: ProductPageProps) {
   const isSketchbook = product.category.toLowerCase().includes("sketchbook")
   const isNotForSale = product.price === "not-for-sale"
 
-  // Specific pieces that should use the "Serene Lake at Sunset" format
-  const specificWatercolorPieces = [
-    "Urban Street with Dome",
-    "Tranquil Lakeside",
-    "Canal Bridge Reflections",
-    "Countryside Vista",
-    "Solitary Reflection",
-    "Tower Perspective",
-    "Cathedral Plaza",
-    "Serene Lake at Sunset",
-  ]
-
-  // Check if this piece should use the centered mobile-optimized format
-  const useSereneLakeFormat = specificWatercolorPieces.includes(product.title) || isSketchbook
-
   // Check if image is vertical (portrait orientation)
   const isVerticalImage = (title: string) => {
     // Imágenes específicas que se tratan como verticales
@@ -94,6 +79,7 @@ export default function ProductPage({ params }: ProductPageProps) {
       "expressive",
       "sketchbook",
       "face",
+      // Eliminar "lake", "sunset", "serene" para que "Serene Lake at Sunset" no se detecte como vertical
       "tranquil",
       "lakeside",
       "solitary",
@@ -137,34 +123,24 @@ export default function ProductPage({ params }: ProductPageProps) {
     return classes
   }
 
-  // Determine gap class based on image type and format
+  // Determine gap class based on image type
   const getGapClass = () => {
-    if (useSereneLakeFormat) {
-      return "gap-4 lg:gap-6" // Consistent gap for Serene Lake format
-    }
     if (isAlignedVertically) {
       return "gap-4 lg:gap-6" // Gap específico para imágenes verticales (más centrado)
     }
     return "gap-8 lg:gap-12" // Gap normal para el resto
   }
 
-  // Determine container max width
+  // Determine container max width for vertical images
   const getContainerClass = () => {
-    if (useSereneLakeFormat) {
-      return "max-w-6xl mx-auto px-4 py-8 md:px-6 md:py-12 animate-fade-in" // Centered container for Serene Lake format
-    }
     if (isAlignedVertically) {
-      return "max-w-6xl mx-auto px-4 py-8 md:px-6 md:py-12 animate-fade-in" // Contenedor más centrado para verticales
+      return "max-w-6xl mx-auto px-4 py-8 md:px-6 md:py-12 animate-fade-in overflow-x-hidden" // Contenedor más centrado para verticales
     }
-    return "max-w-7xl mx-auto px-4 py-8 md:px-6 md:py-12 animate-fade-in" // Contenedor estándar
+    return "max-w-7xl mx-auto px-4 py-8 md:px-6 md:py-12 animate-fade-in overflow-x-hidden" // Contenedor estándar
   }
 
-  // Determinar dimensiones de imagen según el título y formato
+  // Determinar dimensiones de imagen según el título
   const getImageDimensions = () => {
-    if (useSereneLakeFormat) {
-      // Dimensiones optimizadas para el formato Serene Lake
-      return { width: 800, height: 1000 }
-    }
     if (product.title === "Chromatic Explosion") {
       // Dimensiones más grandes para Chromatic Explosion - más protagonismo
       return { width: 1200, height: 1600 }
@@ -176,11 +152,8 @@ export default function ProductPage({ params }: ProductPageProps) {
     return imageIsVertical ? { width: 500, height: 700 } : { width: 900, height: 1200 }
   }
 
-  // Determinar ancho de contenedores
+  // Determinar ancho de contenedores para Chromatic Explosion
   const getImageContainerWidth = () => {
-    if (useSereneLakeFormat) {
-      return "md:w-1/2" // 50% for Serene Lake format
-    }
     if (product.title === "Chromatic Explosion") {
       return "md:w-3/5" // 60% para la imagen de Chromatic Explosion
     }
@@ -188,9 +161,6 @@ export default function ProductPage({ params }: ProductPageProps) {
   }
 
   const getTextContainerWidth = () => {
-    if (useSereneLakeFormat) {
-      return "md:w-1/2" // 50% for Serene Lake format
-    }
     if (product.title === "Chromatic Explosion") {
       return "md:w-2/5" // 40% para el texto de Chromatic Explosion
     }
@@ -207,11 +177,11 @@ export default function ProductPage({ params }: ProductPageProps) {
       </Link>
 
       <div
-        className={`flex flex-col md:flex-row ${getGapClass()} ${useSereneLakeFormat || isAlignedVertically ? "justify-center items-start" : ""}`}
+        className={`flex flex-col md:flex-row ${getGapClass()} ${isAlignedVertically ? "justify-center items-start" : ""}`}
       >
         {/* Product image - left side with conditional width */}
         <div
-          className={`${getImageContainerWidth()} animate-slide-in ${useSereneLakeFormat || isAlignedVertically ? "flex justify-center" : ""}`}
+          className={`${getImageContainerWidth()} animate-slide-in ${isAlignedVertically ? "flex justify-center" : ""}`}
         >
           <div className={imageContainerClass()}>
             <Image
@@ -223,13 +193,11 @@ export default function ProductPage({ params }: ProductPageProps) {
               className="object-contain w-full h-auto"
               priority
               sizes={
-                useSereneLakeFormat
-                  ? "(max-width: 768px) 100vw, 50vw"
-                  : product.title === "Chromatic Explosion"
-                    ? "(max-width: 768px) 100vw, 60vw"
-                    : isAlignedVertically
-                      ? "(max-width: 768px) 100vw, 40vw"
-                      : "(max-width: 768px) 100vw, 60vw"
+                product.title === "Chromatic Explosion"
+                  ? "(max-width: 768px) 100vw, 60vw"
+                  : isAlignedVertically
+                    ? "(max-width: 768px) 100vw, 40vw"
+                    : "(max-width: 768px) 100vw, 60vw"
               }
               placeholder="blur"
               blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
@@ -245,16 +213,13 @@ export default function ProductPage({ params }: ProductPageProps) {
 
         {/* Product information - right side with conditional width */}
         <div className={`${getTextContainerWidth()} animate-slide-up`}>
-          {/* Title and Share button section with proper spacing like sketchbook */}
-          <div className="w-full mb-4">
-            <div className="flex justify-between items-start">
-              <div className="flex-1">
-                <h1 className="text-2xl md:text-3xl font-bold">{product.title}</h1>
-                <p className="text-gray-600 mt-1">{product.category}</p>
-              </div>
-              <div className="ml-4">
-                <SocialShare title={product.title} image={product.images[0]} />
-              </div>
+          <div className="flex justify-between items-start mb-4">
+            <div className="flex-1">
+              <h1 className="text-2xl md:text-3xl font-bold">{product.title}</h1>
+              <p className="text-gray-600 mt-1">{product.category}</p>
+            </div>
+            <div className="ml-4">
+              <SocialShare title={product.title} image={product.images[0]} />
             </div>
           </div>
 

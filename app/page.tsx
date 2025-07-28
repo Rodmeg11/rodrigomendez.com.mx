@@ -60,18 +60,19 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Hero Section - With abstract background */}
+    <div className="flex flex-col min-h-screen overflow-x-hidden">
+      {/* Hero Section - With static background */}
       <section className="relative w-full h-[80vh] overflow-hidden">
-        {/* Background Image */}
+        {/* Background Image - Static, no animations */}
         <div className="absolute inset-0">
           <Image
             src="/images/hero-background-abstract.jpeg"
             alt="Abstract expressionist background"
             fill
-            className="object-cover"
+            className="object-cover object-center"
             quality={90}
             priority
+            style={{ transform: "none", position: "absolute" }}
           />
           {/* Dark overlay for text readability */}
           <div className="absolute inset-0 bg-black/25"></div>
