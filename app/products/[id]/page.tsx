@@ -6,7 +6,6 @@ import { FeaturedArtwork } from "@/components/featured-artwork"
 import { products } from "@/lib/products"
 import { ImageModal } from "@/components/image-modal"
 import { SocialShare } from "@/components/social-share"
-
 import "../products.css"
 
 interface ProductPageProps {
@@ -85,6 +84,7 @@ export default function ProductPage({ params }: ProductPageProps) {
       "solitary",
       "reflection",
     ]
+
     return verticalKeywords.some((keyword) => title.toLowerCase().includes(keyword))
   }
 

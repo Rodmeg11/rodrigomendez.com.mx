@@ -14,18 +14,17 @@ const artworks = products.map((product) => ({
   id: product.id,
   title: product.title,
   category: product.category,
-  price: product.price,
   image: product.images[0],
   technique: product.category.toLowerCase().includes("watercolor")
     ? "Watercolor"
     : product.category.toLowerCase().includes("sketchbook")
       ? "Pen & Ink"
       : product.category.toLowerCase().includes("painting")
-        ? product.details.includes("Acrylic")
+        ? product.details?.includes("Acrylic")
           ? "Acrylic"
           : "Mixed Media"
         : "Drawing",
-  medium: product.details.includes("canvas") ? "Canvas" : "Paper",
+  medium: product.details?.includes("canvas") ? "Canvas" : "Paper",
   categories: product.category.toLowerCase().includes("watercolor")
     ? ["watercolors", "all"]
     : product.category.toLowerCase().includes("sketchbook")
@@ -40,27 +39,27 @@ const artworks = products.map((product) => ({
 const categoryData = {
   all: {
     title: "All Works",
-    items: artworks.filter((artwork) => artwork.categories.includes("all")).length,
+    items: artworks.filter((artwork) => artwork.categories?.includes("all")).length,
     backgroundImage: null,
   },
   watercolors: {
     title: "Watercolors",
-    items: artworks.filter((artwork) => artwork.categories.includes("watercolors")).length,
+    items: artworks.filter((artwork) => artwork.categories?.includes("watercolors")).length,
     backgroundImage: null,
   },
   sketchbook: {
     title: "Sketchbook Studies",
-    items: artworks.filter((artwork) => artwork.categories.includes("sketchbook")).length,
+    items: artworks.filter((artwork) => artwork.categories?.includes("sketchbook")).length,
     backgroundImage: null,
   },
   paintings: {
     title: "Paintings",
-    items: artworks.filter((artwork) => artwork.categories.includes("paintings")).length,
+    items: artworks.filter((artwork) => artwork.categories?.includes("paintings")).length,
     backgroundImage: null,
   },
   drawings: {
     title: "Drawings",
-    items: artworks.filter((artwork) => artwork.categories.includes("drawings")).length,
+    items: artworks.filter((artwork) => artwork.categories?.includes("drawings")).length,
     backgroundImage: null,
   },
 }
@@ -83,7 +82,7 @@ export default function CategoryPageClient({ params }: CategoryPageProps) {
 
   useEffect(() => {
     // Filter artworks by category
-    const filtered = artworks.filter((artwork) => artwork.categories.includes(category))
+    const filtered = artworks.filter((artwork) => artwork.categories && artwork.categories.includes(category))
 
     // Special handling for paintings category to keep Still Life Series together but in random position
     if (category === "paintings") {
