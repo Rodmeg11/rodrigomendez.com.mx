@@ -336,7 +336,7 @@ export const products = [
     images: ["/images/watercolor-countryside-tree.jpeg", "/images/watercolor-countryside-tree.jpeg"],
     related: ["26", "38", "9"],
   },
-  // Drawings - Sentimiento al desnudo collection in the correct order
+  // New drawing - Eco
   {
     id: "62",
     title: "Eco",
@@ -347,6 +347,7 @@ export const products = [
     images: ["/images/drawing-eco-eco.jpeg", "/images/drawing-eco-eco.jpeg"],
     related: ["63", "64", "65"],
   },
+  // New drawing - Sin título
   {
     id: "63",
     title: "Sin título",
@@ -357,6 +358,7 @@ export const products = [
     images: ["/images/drawing-sin-titulo.jpeg", "/images/drawing-sin-titulo.jpeg"],
     related: ["62", "64", "65"],
   },
+  // New drawing - Silueta en claro obscuro
   {
     id: "64",
     title: "Silueta en claro obscuro",
@@ -367,6 +369,7 @@ export const products = [
     images: ["/images/drawing-silueta-claro-obscuro.jpeg", "/images/drawing-silueta-claro-obscuro.jpeg"],
     related: ["62", "63", "65"],
   },
+  // New drawing - Flor de Cerezo
   {
     id: "65",
     title: "Flor de Cerezo",
@@ -375,16 +378,6 @@ export const products = [
     details:
       "Pastel on paper\nDimensions: 76 x 54 cm\nYear: 2021\nFrom the solo exhibition 'Sentimiento al desnudo'\nSigned by the artist",
     images: ["/images/drawing-flor-de-cerezo.jpeg", "/images/drawing-flor-de-cerezo.jpeg"],
-    related: ["62", "63", "64"],
-  },
-  {
-    id: "66",
-    title: "Luciérnaga",
-    category: "Original Drawing - Sentimiento al desnudo",
-    price: "SOLD",
-    details:
-      "SOLD\nPastel on paper\nDimensions: 76 x 54 cm\nYear: 2021\nFrom the solo exhibition 'Sentimiento al desnudo'\nSigned by the artist",
-    images: ["/images/drawing-luciernaga.jpeg", "/images/drawing-luciernaga.jpeg"],
     related: ["62", "63", "64"],
   },
   // New Paintings Category
@@ -571,5 +564,16 @@ export const products = [
     details: "Mixed media on paper\nDimensions: 50 x 70 cm\nYear: 2024\nSigned by the artist",
     images: ["/images/painting-three-figures.jpeg", "/images/painting-three-figures.jpeg"],
     related: ["40", "58", "59"],
+  },
+  // New drawing - Luciérnaga
+  {
+    id: "66",
+    title: "Luciérnaga",
+    category: "Original Drawing - Sentimiento al desnudo",
+    price: "SOLD",
+    details:
+      "SOLD\nPastel on paper\nDimensions: 76 x 54 cm\nYear: 2021\nFrom the solo exhibition 'Sentimiento al desnudo'\nSigned by the artist",
+    images: ["/images/drawing-luciernaga.jpeg", "/images/drawing-luciernaga.jpeg"],
+    related: ["62", "63", "64"],
   },
 ]
