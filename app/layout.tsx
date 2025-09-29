@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "Rodrigo Méndez Gallery | Expressive Art",
     description: "Art gallery featuring watercolors, drawings, paintings and sketchbook works",
   },
-    generator: 'v0.dev'
+    generator: 'v0.app'
 }
 
 export default function RootLayout({

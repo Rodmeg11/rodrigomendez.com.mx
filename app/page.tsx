@@ -156,14 +156,12 @@ export default function Home() {
       <section className="py-16 px-4 md:px-6 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl font-bold mb-6">About Rodrigo Méndez</h2>
+            <h2 className="text-3xl font-bold mb-6">About me</h2>
             <p className="text-lg mb-6">
-              Rodrigo Méndez is an art studio dedicated to exploring various artistic techniques, from charcoal drawings
-              to expressive paintings and detailed watercolors.
+              I'm a Mexican artist dedicated to exploring various artistic techniques, from charcoal drawings to expressive paintings and detailed watercolors.
             </p>
             <p className="text-lg mb-6">
-              Each work is created with passion and dedication, seeking to convey deep emotions and connect with the
-              viewer through art.
+              <br>
             </p>
             <Button asChild>
               <Link href="/about" scroll={true}>
