@@ -14,12 +14,6 @@ interface ProductPageProps {
   }
 }
 
-export function generateStaticParams() {
-  return products.map((product) => ({
-    id: product.id,
-  }))
-}
-
 export default function ProductPage({ params }: ProductPageProps) {
   const product = products.find((p) => p.id === params.id)
 
