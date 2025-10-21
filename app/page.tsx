@@ -15,6 +15,8 @@ export default function Home() {
   const [featuredWorks, setFeaturedWorks] = useState<any[]>([])
 
   useEffect(() => {
+    console.log("[v0] Deployment Version: v31-FIXED")
+
     // Get all watercolor works and shuffle them
     const watercolorWorks = products
       .filter((product) => product.category.toLowerCase().includes("watercolor"))
