@@ -35,7 +35,12 @@ export function Header() {
             <Youtube size={18} />
             <span className="sr-only">YouTube</span>
           </Link>
-          <Link href="https://facebook.com" className="hover:text-gray-300" target="_blank" rel="noopener noreferrer">
+          <Link
+            href="https://www.facebook.com/profile.php?id=61579757980843"
+            className="hover:text-gray-300"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Facebook size={18} />
             <span className="sr-only">Facebook</span>
           </Link>

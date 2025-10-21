@@ -31,7 +31,7 @@ export function Footer() {
                 <span className="sr-only">YouTube</span>
               </Link>
               <Link
-                href="https://facebook.com"
+                href="https://www.facebook.com/profile.php?id=61579757980843"
                 className="hover:text-gray-300"
                 target="_blank"
                 rel="noopener noreferrer"

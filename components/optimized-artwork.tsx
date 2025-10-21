@@ -48,6 +48,8 @@ function OptimizedArtworkComponent({ title, category, image, href, scroll = true
     }
   }, [])
 
+  const isSketchbook = category.toLowerCase().includes("sketchbook")
+
   // Special positioning for Bull Silhouette thumbnail
   const getImagePositioning = () => {
     if (title === "Bull Silhouette") {
@@ -70,7 +72,9 @@ function OptimizedArtworkComponent({ title, category, image, href, scroll = true
           touchAction: "manipulation",
         }}
       >
-        <div className="relative aspect-[3/4] overflow-hidden bg-gray-100">
+        <div
+          className={`relative overflow-hidden bg-gray-100 ${isSketchbook ? "aspect-auto md:aspect-[3/4]" : "aspect-[3/4]"}`}
+        >
           {(isVisible || shouldPrioritize) && (
             <Image
               src={image || "/placeholder.svg?height=800&width=600&query=artwork"}

@@ -119,6 +119,7 @@ export default function ProductPage({ params }: ProductPageProps) {
   const imageContainerClass = () => {
     let classes = "image-container"
     if (imageIsVertical) classes += " vertical-image"
+    if (isSketchbook) classes += " sketch-detail"
     classes += getWatercolorSizeClass(product.title)
     return classes
   }
