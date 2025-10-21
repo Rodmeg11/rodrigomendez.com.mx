@@ -158,7 +158,7 @@ export default function CategoryPageClient({ params }: CategoryPageProps) {
       setShuffledArtworks(finalArray)
       setFilteredArtworks(finalArray)
     } else if (category === "drawings") {
-      const drawingOrder = ["62", "63", "64", "65", "66", "67", "68", "69"]
+      const drawingOrder = ["62", "63", "64", "65", "66", "67", "68", "69", "70"]
 
       const orderedDrawings = drawingOrder.map((id) => filtered.find((artwork) => artwork.id === id)).filter(Boolean)
 
