@@ -158,11 +158,10 @@ export default function Home() {
           <div>
             <h2 className="text-3xl font-bold mb-6">About me</h2>
             <p className="text-lg mb-6">
-              I'm a Mexican artist dedicated to exploring various artistic techniques, from charcoal drawings to expressive paintings and detailed watercolors.
+              I'm a Mexican artist dedicated to exploring various artistic techniques, from charcoal drawings to
+              expressive paintings and detailed watercolors.
             </p>
-            <p className="text-lg mb-6">
-              <br>
-            </p>
+            <p className="text-lg mb-6">{/* Empty paragraph for spacing */}</p>
             <Button asChild>
               <Link href="/about" scroll={true}>
                 Learn More
