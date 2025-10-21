@@ -70,7 +70,7 @@ interface CategoryPageProps {
   }
 }
 
-export default function CategoryPageClient({ params }: CategoryPageProps) {
+export function CategoryPageClient({ params }: CategoryPageProps) {
   const [shuffledArtworks, setShuffledArtworks] = useState<typeof artworks>([])
   const [filteredArtworks, setFilteredArtworks] = useState<typeof artworks>([])
   const [showFilters, setShowFilters] = useState(false)
@@ -310,3 +310,5 @@ export default function CategoryPageClient({ params }: CategoryPageProps) {
     </div>
   )
 }
+
+export default CategoryPageClient
