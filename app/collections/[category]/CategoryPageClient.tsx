@@ -158,17 +158,15 @@ export default function CategoryPageClient({ params }: CategoryPageProps) {
       setShuffledArtworks(finalArray)
       setFilteredArtworks(finalArray)
     } else if (category === "drawings") {
-      // Special handling for drawings category - Eco first, then Sin título, then Silueta en claro obscuro, then Flor de Cerezo, then others
-      const eco = filtered.find((artwork) => artwork.id === "62") // Eco
-      const sinTitulo = filtered.find((artwork) => artwork.id === "63") // Sin título
-      const siluetaClaroObscuro = filtered.find((artwork) => artwork.id === "64") // Silueta en claro obscuro
-      const florDeCerezo = filtered.find((artwork) => artwork.id === "65") // Flor de Cerezo
-      const otherDrawings = filtered.filter(
-        (artwork) => artwork.id !== "62" && artwork.id !== "63" && artwork.id !== "64" && artwork.id !== "65",
-      )
+      const drawingOrder = ["62", "63", "64", "65", "66", "67", "68", "69", "70"]
 
-      const shuffledOthers = shuffleArray(otherDrawings)
-      const finalArray = [eco, sinTitulo, siluetaClaroObscuro, florDeCerezo, ...shuffledOthers].filter(Boolean)
+      const orderedDrawings = drawingOrder
+        .map((id) => filtered.find((artwork) => artwork.id === id))
+        .filter((artwork): artwork is NonNullable<typeof artwork> => artwork !== undefined)
+
+      const remainingDrawings = filtered.filter((artwork) => !drawingOrder.includes(artwork.id))
+
+      const finalArray = [...orderedDrawings, ...remainingDrawings]
 
       setShuffledArtworks(finalArray)
       setFilteredArtworks(finalArray)
