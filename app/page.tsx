@@ -15,9 +15,8 @@ export default function Home() {
   const [featuredWorks, setFeaturedWorks] = useState<any[]>([])
 
   useEffect(() => {
-    console.log("[v0] Deployment Version: v31-FIXED")
+    console.log("[v0] Deployment Version: v32-LAYOUT-FIX")
 
-    // Get all watercolor works and shuffle them
     const watercolorWorks = products
       .filter((product) => product.category.toLowerCase().includes("watercolor"))
       .map((product) => ({
@@ -29,7 +28,6 @@ export default function Home() {
         href: `/products/${product.id}`,
       }))
 
-    // Get sketchbook works
     const sketchbookWorks = products
       .filter((product) => product.category.toLowerCase().includes("sketchbook"))
       .slice(0, 8)
@@ -42,7 +40,6 @@ export default function Home() {
         href: `/products/${product.id}`,
       }))
 
-    // Get some mixed technique works
     const mixedWorks = products
       .filter((product) => product.category.toLowerCase().includes("mixed"))
       .slice(0, 3)
@@ -55,7 +52,6 @@ export default function Home() {
         href: `/products/${product.id}`,
       }))
 
-    // Combine all works and shuffle, then limit to 10 items
     const allFeaturedWorks = [...watercolorWorks, ...sketchbookWorks, ...mixedWorks]
     const shuffledWorks = shuffleArray(allFeaturedWorks)
     setFeaturedWorks(shuffledWorks.slice(0, 10))
@@ -66,7 +62,7 @@ export default function Home() {
       {/* Hero Section - With static background */}
       <section className="relative w-full h-[80vh] overflow-hidden">
         {/* Background Image - Static, no animations */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 z-0">
           <Image
             src="/images/hero-background-abstract.jpeg"
             alt="Abstract expressionist background"
@@ -74,14 +70,13 @@ export default function Home() {
             className="object-cover object-center"
             quality={90}
             priority
-            style={{ transform: "none", position: "absolute" }}
           />
           {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-black/25"></div>
+          <div className="absolute inset-0 bg-black/25 z-10"></div>
         </div>
 
         {/* Content */}
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-white p-4">
+        <div className="relative z-20 h-full flex flex-col items-center justify-center text-white p-4">
           <p className="text-xl md:text-2xl text-center max-w-2xl mb-8 animate-fade-in-up">
             Exploring artistic expression through multiple techniques and media
           </p>
