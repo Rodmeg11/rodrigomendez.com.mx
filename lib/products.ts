@@ -354,7 +354,7 @@ export const products = [
     category: "Original Drawing - Sentimiento al desnudo",
     price: "not-for-sale",
     details:
-      "Pastel on paper\nDimensions: 54 x 76 cm\nYear: 2021\nFrom the solo exhibition 'Sentimiento al desnudo'\nSigned by the artist",
+      "Charcoal on paper\nDimensions: 76 x 54 cm\nYear: 2021\nFrom the solo exhibition 'Sentimiento al desnudo'\nSigned by the artist",
     images: ["/images/drawing-sin-titulo.jpeg", "/images/drawing-sin-titulo.jpeg"],
     related: ["62", "64", "65"],
   },
@@ -369,6 +369,7 @@ export const products = [
     images: ["/images/drawing-silueta-claro-obscuro.jpeg", "/images/drawing-silueta-claro-obscuro.jpeg"],
     related: ["62", "63", "65"],
   },
+  // New drawing - Flor de Cerezo
   {
     id: "65",
     title: "Flor de Cerezo",
@@ -377,50 +378,6 @@ export const products = [
     details:
       "Pastel on paper\nDimensions: 76 x 54 cm\nYear: 2021\nFrom the solo exhibition 'Sentimiento al desnudo'\nSigned by the artist",
     images: ["/images/drawing-flor-de-cerezo.jpeg", "/images/drawing-flor-de-cerezo.jpeg"],
-    related: ["62", "63", "64"],
-  },
-  // New drawing - Luciérnaga
-  {
-    id: "66",
-    title: "Luciérnaga",
-    category: "Original Drawing - Sentimiento al desnudo",
-    price: "not-for-sale",
-    details:
-      "Pastel on paper\nDimensions: 76 x 54 cm\nYear: 2021\nFrom the solo exhibition 'Sentimiento al desnudo'\nSigned by the artist",
-    images: ["/images/drawing-luciernaga.jpeg", "/images/drawing-luciernaga.jpeg"],
-    related: ["62", "63", "64"],
-  },
-  // New drawing - Carabela
-  {
-    id: "67",
-    title: "Carabela",
-    category: "Original Drawing - Sentimiento al desnudo",
-    price: "not-for-sale",
-    details:
-      "Pastel on paper\nDimensions: 54 x 76 cm\nYear: 2021\nFrom the solo exhibition 'Sentimiento al desnudo'\nSigned by the artist",
-    images: ["/images/drawing-carabela.jpeg", "/images/drawing-carabela.jpeg"],
-    related: ["62", "63", "64"],
-  },
-  // New drawing - Mujer caligráfica
-  {
-    id: "68",
-    title: "Mujer caligráfica",
-    category: "Original Drawing - Sentimiento al desnudo",
-    price: "not-for-sale",
-    details:
-      "Charcoal on paper\nDimensions: 76 x 54 cm\nYear: 2021\nFrom the solo exhibition 'Sentimiento al desnudo'\nSigned by the artist",
-    images: ["/images/drawing-mujer-caligrafica.jpeg", "/images/drawing-mujer-caligrafica.jpeg"],
-    related: ["62", "63", "64"],
-  },
-  // New drawing - Holograma
-  {
-    id: "69",
-    title: "Holograma",
-    category: "Original Drawing - Sentimiento al desnudo",
-    price: "not-for-sale",
-    details:
-      "Charcoal on paper\nDimensions: 54 x 76 cm\nYear: 2021\nFrom the solo exhibition 'Sentimiento al desnudo'\nSigned by the artist",
-    images: ["/images/drawing-holograma.jpeg", "/images/drawing-holograma.jpeg"],
     related: ["62", "63", "64"],
   },
   // New Paintings Category
@@ -607,5 +564,16 @@ export const products = [
     details: "Mixed media on paper\nDimensions: 50 x 70 cm\nYear: 2024\nSigned by the artist",
     images: ["/images/painting-three-figures.jpeg", "/images/painting-three-figures.jpeg"],
     related: ["40", "58", "59"],
+  },
+  // New drawing - Luciérnaga
+  {
+    id: "66",
+    title: "Luciérnaga",
+    category: "Original Drawing - Sentimiento al desnudo",
+    price: "SOLD",
+    details:
+      "SOLD\nPastel on paper\nDimensions: 76 x 54 cm\nYear: 2021\nFrom the solo exhibition 'Sentimiento al desnudo'\nSigned by the artist",
+    images: ["/images/drawing-luciernaga.jpeg", "/images/drawing-luciernaga.jpeg"],
+    related: ["62", "63", "64"],
   },
 ]

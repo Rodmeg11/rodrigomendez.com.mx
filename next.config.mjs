@@ -27,6 +27,8 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
+  // Configuración para producción
+  output: 'standalone',
   trailingSlash: false,
   poweredByHeader: false,
 }
